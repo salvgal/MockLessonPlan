@@ -1,9 +1,8 @@
-# Lesson Plan: Functional Programming and Lambda Expressiona in JAVA 8
+# Lesson Plan: Functional Programming and Lambda Expressions in JAVA 8
 
 
 ## Level Set (5 min)
 
- 
 ### Prerequisite:
 Basic Java and OOP programming up to Java 7.
 
@@ -52,7 +51,7 @@ These are calle **Lambda Expressions**, or simplified **Lambdas**. These methods
 also be treated as values (this means that it will be possible to assign a
 piece of code to a variable and treat is as a variable value).
 
-* Example:
+Example:
 
 ```java
 aBlockOfCode = {
@@ -90,7 +89,8 @@ curly braces and the lambda expression can be written as:
 aBlockOfCode = () -> //a line of code here
 ```
 
-## Practice (We Do - 10 min):
+
+## Practice (We do - 10 min):
 
 ### Practice 1 : Create a lambda expression as following
 ```java
@@ -126,11 +126,10 @@ is required):
 ```java
 doubleNumberFunction = (int a) -> a * 2;
 ```
-This is it\! Our new lambda expression is ready.
+This is it\! Our new lambda expression is ready to be used.
 
- 
 
-## Extra Practice (if time permitted - We Do - 5 min):
+## Extra Practice (We Do - 5 min):
 
 Create new lambda expressions as the one below:
 ```java
@@ -146,7 +145,7 @@ safeDivisionFunction = (int a, int b) -> {
 (method take as input two parameters and return the division in a safely
 manner)
 ```java
-stringLengthCountFunction	= (String s) -> s.length();
+stringLengthCountFunction = (String s) -> s.length();
 ```
 (method take as input a String and return its length)
  
@@ -157,77 +156,51 @@ created have not a type, the java compiler will not accept them, so the
 following question:
 
 Q. How to declare a lambda expression?
-
 A. Using functional interface\!
-
- 
 
 In general, a functional interface is a simple interface containing a
 method that allow the lambda expression to be executed in Java.
 
  
 
-Code snippet:
+### Code snippet (You do - 5 min):
+```java
+public class Greeter {
+    
+  public static void main(String[] args) {
 
-            public class Greeter {
-    
-       
-    
-       public static void main(String[] args) {
-    
-    
-    
-          GreetInterface greetFunction = () -> System.out.println("Hello world");
-    
-    
-    
-          //lambda expression executed as interface implementation
-    
-          greetFunction.method();
-    
-    
-    
-          //lambda expression passed as method parameter
-    
-          greeterFunction(greetFunction);
-    
-    
-    
-       }
-    
-    
-    
-       public static void greeterFunction(GreetInterface greet){
-    
-          greet.method();
-    
-       }
+    GreetInterface greetFunction = () -> System.out.println("Hello world");
+ 
+    //lambda expression executed as interface implementation
+    greetFunction.method();
 
-``` 
+    //lambda expression passed as method parameter
+    greeterFunction(greetFunction);
+    
+    }
 
+  public static void greeterFunction(GreetInterface greet) {
+    
+    greet.method();
+      
+  }
 
-
-   interface GreetInterface{
+   interface GreetInterface {
 
       void method();
 
    }
-```
-
-``` 
 }
 ```
 
- 
-
-Note: Only one method can exist in the interface and it has to have the
-same signature of the lambda expression (not necessarily same method
-name). If we need to create and execute a second lambda expression, we
-need to create a second new interface with only one method in it.
+>Note: Only one method can exist in the interface and it has to have the
+>same signature of the lambda expression (not necessarily same method
+>name). If we need to create and execute a second lambda expression, we
+>need to create a second new interface with only one method in it.
 
  
 
-Lambda expression as anonymous inner class and Type Inference:
+## Lambda expression as anonymous inner class and Type Inference:
 
 In general, a lambda expression is very similar to an anonymous inner
 class \*
