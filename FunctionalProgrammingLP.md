@@ -1,4 +1,4 @@
-# Lesson Plan:Functional Programming and Lambda Expressiona in JAVA 8
+# Lesson Plan: Functional Programming and Lambda Expressiona in JAVA 8
 
 
 ## Level Set (5 min)
@@ -12,7 +12,7 @@ Basic Java and OOP programming up to Java 7.
 1. Understanding lambdas
 2. Using lambdas
 3. Functional Interfaces
-4.Collections improvements
+4. Collections improvements
 
 ### Why lambdas?
 
@@ -29,7 +29,7 @@ Programming</span> in Java
 * IntelliJ Idea or any similar IDE with Java integration
 
 
-## Functional Programming vs Object Oriented Programming (5 min)
+## Functional Programming vs Object Oriented Programming ( You Do - 5 min)
 
 * Functional programming doesn’t allow developers to
 do new things, but it adds new features for writing more readable code,
@@ -45,7 +45,7 @@ not tied to any class?
 (Discuss all above with the students)
  
 
-## How to create a lambda expression (5 min)
+## How to create a lambda expression (You do - 5 min)
 
 Lambda let the developer create these methods that perform an action not tied to an object/class. 
 These are calle **Lambda Expressions**, or simplified **Lambdas**. These methods can
@@ -90,94 +90,67 @@ curly braces and the lambda expression can be written as:
 aBlockOfCode = () -> //a line of code here
 ```
 
-PRACTICE 1 (We Do):
+## Practice (We Do - 10 min):
 
-<span style="mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;
-mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri"><span style="mso-list:Ignore">-<span style="font:7.0pt &quot;Times New Roman&quot;">      
-</span></span></span>Create a lambda expression as
-<span class="GramE">following :</span>
+### Practice 1 : Create a lambda expression as following
+```java
+greetFunction = () -> System.out.println("Hello World");
+```
+Now the variable greetFunction can be passed as method parameter.
 
-<span style="mso-no-proof:yes">![](FunctionalProgrammingLessonPlan.fld/image006.png)</span>
+### Practice 2 : Create and reduce a lambda expression as following
 
-<span style="mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;
-mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri"><span style="mso-list:Ignore">-<span style="font:7.0pt &quot;Times New Roman&quot;">      
-</span></span></span>Now the variable greetFunction can be passed as
-method parameter.
-
- 
-
-PRACTICE 2 (We Do):
-
-<span style="mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;
-mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri"><span style="mso-list:Ignore">-<span style="font:7.0pt &quot;Times New Roman&quot;">      
-</span></span></span>Create a regular method that double any input
-parameter and assign it to a variable:
-
-<span style="mso-no-proof:yes">![](FunctionalProgrammingLessonPlan.fld/image007.png)</span>
-
-<span style="mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;
-mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri"><span style="mso-list:Ignore">-<span style="font:7.0pt &quot;Times New Roman&quot;">      
-</span></span></span>Assign it to a variable:
-
-<span style="mso-no-proof:yes">![](FunctionalProgrammingLessonPlan.fld/image008.png)</span>
-
-<span style="mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;
-mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri"><span style="mso-list:Ignore">-<span style="font:7.0pt &quot;Times New Roman&quot;">      
-</span></span></span>Now let’s get rid of the not necessary keywords as
+Create a regular method that double any number and assign the expression to a variable:
+```java
+public int double(int a) {
+  return a * 2;
+}
+```
+Assign it to a variable:
+```java
+doubleNumberFunction = public int double(int a) {
+  return a * 2;
+}
+```
+Now let’s get rid of the not necessary keywords as
 described above:
-
-<span style="mso-no-proof:yes">![](FunctionalProgrammingLessonPlan.fld/image009.png)</span>
-
-<span style="mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;
-mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri"><span style="mso-list:Ignore">-<span style="font:7.0pt &quot;Times New Roman&quot;">      
-</span></span></span>Finally let’s add the arrow operator, but since
+```java
+doubleNumberFunction = (int a) {
+  return a * 2;
+}
+```
+Finally let’s add the arrow operator, but since
 there is only one line of code, we can also omit the braces and the
 return keyword (for a one-line only method omitting the return keyword
 is required):
-
-<span style="mso-no-proof:yes">![](FunctionalProgrammingLessonPlan.fld/image010.png)</span>
-
-This is it\! Our new lambda expression.
-
- 
-
-EXTRA PRACTICE (If time permitted):
+```java
+doubleNumberFunction = (int a) -> a * 2;
+```
+This is it\! Our new lambda expression is ready.
 
  
+
+## Extra Practice (if time permitted - We Do - 5 min):
 
 Create new lambda expressions as the one below:
-
- 
-
-<span style="mso-no-proof:yes">![](FunctionalProgrammingLessonPlan.fld/image011.png)</span><span style="mso-spacerun:yes"> </span>
-
+```java
+addFunction = (int a, int b) -> a + b;
+```
 (method take as input two parameters and return the sum)
-
- 
-
-<span style="mso-no-proof:yes">![](FunctionalProgrammingLessonPlan.fld/image012.png)</span><span style="mso-spacerun:yes"> </span>
-
+```java
+safeDivisionFunction = (int a, int b) -> {
+  if(b==0) return 0;
+  return a / b;
+};
+```
 (method take as input two parameters and return the division in a safely
 manner)
-
+```java
+stringLengthCountFunction	= (String s) -> s.length();
+```
+(method take as input a String and return its length)
  
-
- 
-
-<span style="mso-no-proof:yes">![](FunctionalProgrammingLessonPlan.fld/image013.png)</span><span style="mso-spacerun:yes"> </span>(method
-take as input a String and return its length)
-
-<div style="mso-element:para-border-div;border:none;border-bottom:solid windowtext 1.0pt;
-mso-border-bottom-alt:solid windowtext .75pt;padding:0in 0in 1.0pt 0in;
-margin-left:.5in;margin-right:0in">
-
- 
-
-</div>
-
- 
-
-Functional Interface:
+## Functional Interface:
 
 Roadblock - The problem we have here is that the variable we have
 created have not a type, the java compiler will not accept them, so the
