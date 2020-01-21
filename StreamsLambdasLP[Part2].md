@@ -1,9 +1,9 @@
-# Collections and Streams with Lambdas (You do - 20 min)
+# Collections and Streams with Lambdas 
 
 * Streams: A sequence of elements supporting sequential and parallel
 aggregate operations.
 
-* Collection: A list of elements \[ 1-\> 2-\> 3-\> 4-\> 5-\> 6\ ]
+* Collection: A list of elements \[ 1-\> 2-\> 3-\> 4-\> 5-\> 6 ]
 
  
 
@@ -14,7 +14,7 @@ rolling belt will pass through while different operators inspect and do
 operations on the objects at the same time. This is what happens to
 collections while using streams.
 
-## Example: (You do)
+## Example: (You do - 20 min)
 
 ```java
    public static void main(String[] args) {
@@ -82,3 +82,8 @@ following:
 These will allow a more performant execution of operations on
 collections, thanks to Streams and Lambda Expression (Functional
 Programming) in Java.
+
+
+
+## Practice (We do - 25 min)
+See Folder Exercise with Solutions to provide to students 
