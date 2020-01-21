@@ -149,7 +149,7 @@ stringLengthCountFunction = (String s) -> s.length();
 ```
 (method take as input a String and return its length)
  
-## Functional Interface:
+## Functional Interface (You do - 5 min):
 
 **Roadblock** - The problem we have here is that the variable we have
 created have not a type, the java compiler will not accept them, so the
@@ -163,7 +163,7 @@ In general, a functional interface is a simple interface containing a
 method that allow the lambda expression to be executed in Java.
 
 
-### Code snippet (You do - 5 min):
+### Code snippet:
 ```java
 public class Greeter {
     
