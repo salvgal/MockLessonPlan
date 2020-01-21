@@ -1,146 +1,94 @@
-<div class="WordSection1">
+# Lesson Plan:Functional Programming and Lambda Expressiona in JAVA 8
 
-<span style="mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;
-mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri"><span style="mso-list:Ignore">-<span style="font:7.0pt &quot;Times New Roman&quot;">      
-</span></span></span>PART <span class="GramE">1 :</span> JAVA 8 LAMBDA
 
- 
-
-Prerequisite: All the material below can be applied only if Java 8 is
-running on the JVM. Inferior Java version will not work.
+## Level Set (5 min)
 
  
+### Prerequisite:
+Basic Java and OOP programming up to Java 7.
 
-What this course cover:
+### What this course cover:
 
-<span style="font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:
-Symbol"><span style="mso-list:Ignore">·<span style="font:7.0pt &quot;Times New Roman&quot;">     
-</span></span></span>Understanding lambdas
+1. Understanding lambdas
+2. Using lambdas
+3. Functional Interfaces
+4.Collections improvements
 
-<span style="font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:
-Symbol"><span style="mso-list:Ignore">·<span style="font:7.0pt &quot;Times New Roman&quot;">     
-</span></span></span>Using lambdas
+### Why lambdas?
 
-<span style="font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:
-Symbol"><span style="mso-list:Ignore">·<span style="font:7.0pt &quot;Times New Roman&quot;">     
-</span></span></span>Functional Interfaces
-
-<span style="font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:
-Symbol"><span style="mso-list:Ignore">·<span style="font:7.0pt &quot;Times New Roman&quot;">     
-</span></span></span>Collections improvements
-
- 
-
-Why lambdas?
-
-<span style="font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:
-Symbol"><span style="mso-list:Ignore">·<span style="font:7.0pt &quot;Times New Roman&quot;">     
-</span></span></span>Enables <span class="underline">Functional
+* Enables <span class="underline">Functional
 Programming</span> in Java
+* Code more readable and concise
+* APIs and libraries are easier to use
+* Enables support for parallel processing (getting the best out of multi-core processors in terms of performances)
 
-<span style="font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:
-Symbol"><span style="mso-list:Ignore">·<span style="font:7.0pt &quot;Times New Roman&quot;">     
-</span></span></span>Code more readable and concise
+### Requirements:
 
-<span style="font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:
-Symbol"><span style="mso-list:Ignore">·<span style="font:7.0pt &quot;Times New Roman&quot;">     
-</span></span></span>APIs and libraries are easier to use
+* Be sure Java (version 8 or superior) is up an running on your machine.
+  On terminal, type the command `java -version` to check your version
+* IntelliJ Idea or any similar IDE with Java integration
 
-<span style="font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:
-Symbol"><span style="mso-list:Ignore">·<span style="font:7.0pt &quot;Times New Roman&quot;">     
-</span></span></span>Enables support for parallel processing (getting
-the best out of multi-core processors in terms of performances)
 
- 
+## Functional Programming vs Object Oriented Programming (5 min)
 
-Requirements:
-
-<span style="font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:
-Symbol"><span style="mso-list:Ignore">·<span style="font:7.0pt &quot;Times New Roman&quot;">     
-</span></span></span>Be sure Java (version 8 or superior) is up and
-running on your machine. On terminal, type the command *java -version*
-
-<span style="mso-no-proof:yes">![](FunctionalProgrammingLessonPlan.fld/image001.png)</span>
-
- 
-
-<span style="font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:
-Symbol"><span style="mso-list:Ignore">·<span style="font:7.0pt &quot;Times New Roman&quot;">     
-</span></span></span>IntelliJ Idea or another similar IDE with Java
-integration
-
- 
-
-Functional Programming vs Object Oriented Programming:
-
-<span style="font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:
-Symbol"><span style="mso-list:Ignore">·<span style="font:7.0pt &quot;Times New Roman&quot;">     
-</span></span></span>Functional programming doesn’t allow developers to
+* Functional programming doesn’t allow developers to
 do new things, but it adds new features for writing more readable code,
 hence more maintainable.
 
-<span style="font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:
-Symbol"><span style="mso-list:Ignore">·<span style="font:7.0pt &quot;Times New Roman&quot;">     
-</span></span></span>Functional programming is a new programming
+* Functional programming is a new programming
 paradigm that allows to write elegant code in certain situations. We
 will keep using the OOP paradigm while using Java.
 
-<span style="font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:
-Symbol"><span style="mso-list:Ignore">·<span style="font:7.0pt &quot;Times New Roman&quot;">     
-</span></span></span>In OOP everything is an object, all code blocks are
+* In OOP everything is an object, all code blocks are
 associated with classes and objects. What if you want to create a method
 not tied to any class?
-
+(Discuss all above with the students)
  
 
-How to create a lambda expression:
+## How to create a lambda expression (5 min)
 
-<span style="font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:
-Symbol"><span style="mso-list:Ignore">·<span style="font:7.0pt &quot;Times New Roman&quot;">     
-</span></span></span>Lambda let the developer create these functions
-that perform an action not tied to an object/class. These are called
-**Lambda Expressions**, or simplified **Lambdas.** These functions can
-be treated as values (this means that it will be possible to assign a
+Lambda let the developer create these methods that perform an action not tied to an object/class. 
+These are calle **Lambda Expressions**, or simplified **Lambdas**. These methods can
+also be treated as values (this means that it will be possible to assign a
 piece of code to a variable and treat is as a variable value).
 
-Example:
+* Example:
 
-<span style="mso-tab-count:1">      </span><span style="mso-no-proof:
-yes">![](FunctionalProgrammingLessonPlan.fld/image002.png)</span>
-
-Similar to this:
-
-<span style="mso-no-proof:yes">![](FunctionalProgrammingLessonPlan.fld/image003.png)</span>
-
-<span style="mso-tab-count:1">           
-</span><span style="mso-spacerun:yes">      </span>Note: access modifier
-is already assigned in the variable, and the return type is
-automatically detected by Java, while method name is not needed since we
-have a variable name for referring to it, so all these keywords can be
-omitted for simplicity.
-
-<span style="mso-tab-count:1">            </span>
+```java
+aBlockOfCode = {
+    //some code here
+}
+```
+That is equal to:
+```java
+aBlockOfCode = public void method(){
+    //some code here
+}
+```
+> Note: access modifier is already assigned in the variable, the return type is
+> automatically detected by Java, and method name can be substitute by the variable name.
+> All these keywords are not needed and can be omitted for simplicity.
 
 Now we have an entire block of code that can be passed as variable in a
 method and being executed. It is indeed a **Lambda Expression** when
 used with the **-\>** operator:
 
-<span style="mso-tab-count:2">                       
-</span><span style="mso-no-proof:yes">![](FunctionalProgrammingLessonPlan.fld/image004.png)</span>
-
-Hence, in order to create a Lambda expression, we just simply can create
-a normal method, getting rid of the access modifier, return type, and
-method name, while adding the arrow operator -\>, and assign to a
+```java
+aBlockOfCode = () -> {
+    //some code here
+}
+```
+Hence, in order to create a Lambda expression, we just simply create
+a normal method, omit access modifiers, return type, and
+method name, adding the arrow operator -\>, and assign to a
 variable.
 
- 
-
-Note: if the method contains only one line of code, we can omit the
+> Note: if the method contains only one line of code, we can omit the
 curly braces and the lambda expression can be written as:
 
-<span style="mso-no-proof:yes">![](FunctionalProgrammingLessonPlan.fld/image005.png)</span>
-
- 
+```java
+aBlockOfCode = () -> //a line of code here
+```
 
 PRACTICE 1 (We Do):
 
