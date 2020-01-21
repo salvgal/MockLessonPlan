@@ -76,7 +76,7 @@ Different operators that can be applied to the stream() method are the
 following:
 
 
-<span style="mso-no-proof:yes">![](FunctionalProgrammingLessonPlan.fld/image014.png)</span>
+<span style="mso-no-proof:yes">![](images.fld/image01.png)</span>
 
 
 These will allow a more performant execution of operations on
