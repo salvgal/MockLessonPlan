@@ -85,5 +85,5 @@ Programming) in Java.
 
 
 
-## Practice (We do - 25 min)
+## Practice (We do - 20 min)
 See Folder Exercise with Solutions to provide to students 
