@@ -291,5 +291,3 @@ public interface Greeting {
    public void perform();
 }
 ```
-
-## Practice (See Folder Exercise with Solutions) to provide to students
