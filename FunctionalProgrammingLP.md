@@ -151,17 +151,17 @@ stringLengthCountFunction = (String s) -> s.length();
  
 ## Functional Interface:
 
-Roadblock - The problem we have here is that the variable we have
+**Roadblock** - The problem we have here is that the variable we have
 created have not a type, the java compiler will not accept them, so the
 following question:
 
 Q. How to declare a lambda expression?
+
 A. Using functional interface\!
 
 In general, a functional interface is a simple interface containing a
 method that allow the lambda expression to be executed in Java.
 
- 
 
 ### Code snippet (You do - 5 min):
 ```java
@@ -198,84 +198,51 @@ public class Greeter {
 >name). If we need to create and execute a second lambda expression, we
 >need to create a second new interface with only one method in it.
 
- 
 
-## Lambda expression as anonymous inner class and Type Inference:
+## Lambda expression as anonymous inner class and Type Inference (You do - 5 min):
 
 In general, a lambda expression is very similar to an anonymous inner
 class \*
 
-<span style="font-family:&quot;Times New Roman&quot;,serif;mso-fareast-font-family:
-&quot;Times New Roman&quot;"><https://docs.oracle.com/javase/tutorial/java/javaOO/anonymousclasses.html></span>
+\* <https://docs.oracle.com/javase/tutorial/java/javaOO/anonymousclasses.html>
 
  
 
-See the following example:<span style="font-size:9.0pt;
-font-family:Menlo;mso-fareast-font-family:&quot;Times New Roman&quot;;color:#CC7832"></span>
+See the following example:
 
-    public class Greeter {
-    
-       
-    
-       public static void main(String[] args) {
-    
-    
-    
-          GreetInterface greetFunction = () -> System.out.println("Hello world");
-    
-    
-    
-          //anonymous inner class here
-    
-          GreetInterface innerClassGreet = new GreetInterface() {
-    
-             public void method() {
-    
-                System.out.println("Hello world");
-    
-             }
-    
-          };
-    
-    
-    
-          //inner class execution
-    
-          greeterFunction(innerClassGreet);
-    
-    
-    
-          //lambda expression execution
-    
-          greeterFunction(greetFunction);
-    
-    
-    
-       }
-    
-    
-    
-       public static void greeterFunction(GreetInterface greet){
-    
-          greet.method();
-    
-       }
-    
-       
-    
-    
-    
-       interface GreetInterface{
-    
-          void method();
-    
-       }
-    
-    
-    
-    }
+```java
+public class Greeter {
+   
+   public static void main(String[] args) {
 
- 
+      GreetInterface greetFunction = () -> System.out.println("Hello world");
+
+      //anonymous inner class here
+      GreetInterface innerClassGreet = new GreetInterface() {
+         public void method() {
+            System.out.println("Hello world");
+         }
+      };
+
+      //inner class execution
+      greeterFunction(innerClassGreet);
+
+      //lambda expression execution
+      greeterFunction(greetFunction);
+
+   }
+
+   public static void greeterFunction(GreetInterface greet){
+      greet.method();
+   }
+   
+
+   interface GreetInterface{
+      void method();
+   }
+
+}
+```
 
 Since now we tied a lambda expression to an interface, and the interface
 has the method signature in it, we can sharpen our lambda expression by
@@ -283,523 +250,46 @@ omitting the type for the input parameter and the parenthesis
 themselves. Looking at the example above of a lambda expression that
 compute the length of a String, we are able to do something as follow:
 
- 
+```java
+public static void main(String[] args) {
+      
+      //Lambda expression reduced from the form: (String s) -> s.length()
+      printLambda(s -> s.length());
+      
+   }
+   
+   
+   public static void printLambda(StringLengthLambda l) {
+      System.out.print(l.getLength("Hello Lambda"));
+   }
+   
+   
+   interface StringLengthLambda {
+      int getLength(String s);
+   }
 
-    public class TypeInferenceExample {
-    
-    
-    
-       public static void main(String[] args) {
-    
-          
-    
-          //Lambda expression reduced from the form: (String s) -> s.length()
-    
-          printLambda(s -> s.length());
-    
-          
-    
-       }
-    
-       
-    
-       
-    
-       public static void printLambda(StringLengthLambda l) {
-    
-          System.out.print(l.getLength("Hello Lambda"));
-    
-       }
-    
-       
-    
-       
-    
-       interface StringLengthLambda {
-    
-          int getLength(String s);
-    
-       }
-    
-    
-    
-    }
+}
 
- 
-
+```
 This is what is called Type Inference. Java 8 compiler seems to be more
 and more smart\!
 
- 
 
-Extra:
+### Extra (5 min):
 
 The class level annotation
-@<span class="SpellE">FunctionalInterface</span> is advised to be used
+_@FunctionalInterface_ is advised to be used
 on top of functional interface to make it clear to developers that this
 is an interface used for functional programming purposes (i.e. Lambda
 expression). This annotation is optional: Java will run the lambda
 expression with or without the annotation on top.
 
- 
+```java
+@FunctionalInterface
+public interface Greeting {
+   
+   public void perform();
+}
+```
 
-    @FunctionalInterface
-    
-    public interface Greeting {
-    
-       
-    
-       public void perform();
-    
-    
-    
-    }
-
- 
-
-PRACTICE:
-
- 
-
-    public class Unit1Exercise {
-    
-    
-    
-       public static void main(String[] args) {
-    
-          List<Person> people = Arrays.asList(
-    
-                new Person("Charles", "Dickens", 60),
-    
-                new Person("Lewis", "Carroll", 42),
-    
-                new Person("Thomas", "Carlyle", 51),
-    
-                new Person("Charlotte", "Bronte", 45),
-    
-                new Person("Matthew", "Arnold", 39)
-    
-                );
-    
-          
-    
-          // Step 1: Sort list by last name
-    
-          
-    
-          // Step 2: Create a method that prints all elements in the list
-    
-          
-    
-          // Step 3: Create a method that prints all people that have last name beginning with C 
-    
-    
-    
-       }
-    
-    
-    
-    }
-
- 
-
-    public class Person {
-    
-    
-    
-       private String firstName;
-    
-       private String lastName;
-    
-       private int age;
-    
-       
-    
-       
-    
-       
-    
-       public Person(String firstName, String lastName, int age) {
-    
-          super();
-    
-          this.firstName = firstName;
-    
-          this.lastName = lastName;
-    
-          this.age = age;
-    
-       }
-    
-       
-    
-       public String getFirstName() {
-    
-          return firstName;
-    
-       }
-    
-       public void setFirstName(String firstName) {
-    
-          this.firstName = firstName;
-    
-       }
-    
-       public String getLastName() {
-    
-          return lastName;
-    
-       }
-    
-       public void setLastName(String lastName) {
-    
-          this.lastName = lastName;
-    
-       }
-    
-       public int getAge() {
-    
-          return age;
-    
-       }
-    
-       public void setAge(int age) {
-    
-          this.age = age;
-    
-       }
-    
-    
-    
-       @Override
-    
-       public String toString() {
-    
-          return "Person [firstName=" + firstName + ", lastName=" + lastName + ", age=" + age + "]";
-    
-       }
-    
-       
-    
-    }
-
- 
-
- 
-
-PRACTICE SOLUTIONS:
-
- 
-
-    public class Unit1ExerciseSolution {
-    
-    
-    
-       public static void main(String[] args) {
-    
-          List<Person> people = Arrays.asList(
-    
-                new Person("Charles", "Dickens", 60),
-    
-                new Person("Lewis", "Carroll", 42),
-    
-                new Person("Thomas", "Carlyle", 51),
-    
-                new Person("Charlotte", "Bronte", 45),
-    
-                new Person("Matthew", "Arnold", 39)
-    
-          );
-    
-    
-    
-          // Step 1: Sort list by last name
-    
-          Collections.sort(people, (p1, p2) -> p1.getLastName().compareTo(p2.getLastName()));
-    
-    
-    
-          // Step 2: Create a method that prints all elements in the list
-    
-          System.out.println("Printing all persons");
-    
-          printConditionally(people, p -> true);
-    
-    
-    
-          // Step 3: Create a method that prints all people that have last name beginning with C
-    
-          System.out.println("Printing all persons with last name beginning with C");
-    
-          printConditionally(people, p -> p.getLastName().startsWith("C"));
-    
-    
-    
-          System.out.println("Printing all persons with first name beginning with C");
-    
-    
-    
-          printConditionally(people, p -> p.getFirstName().startsWith("C"));
-    
-    
-    
-       }
-    
-    
-    
-       private static void printConditionally(List<Person> people, Condition condition) {
-    
-          for (Person p : people) {
-    
-             if (condition.test(p)) {
-    
-                System.out.println(p);
-    
-             }
-    
-          }
-    
-       }
-    
-    
-    
-       interface Condition {
-    
-          boolean test(Person p);
-    
-       }
-    
-    
-    
-    }
-
- 
-
- 
-
- 
-
-PART 2: COLLECTIONS AND STREAMS WITH JAVA 8 LAMBDA
-
- 
-
- 
-
-Streams: A sequence of elements supporting sequential and parallel
-aggregate operations.
-
- 
-
-Collection:<span style="mso-spacerun:yes">  </span>list of elements \[
-1-\>2-\>3-\>4-\>5-\><span class="GramE">6 \]</span>
-
- 
-
-With streams we are able to apply different (multiple) operations on
-collections at the same time. To be specific and make an example, image
-our collection as a rolling belt used in industry, objects in the
-rolling belt will pass through while different operators inspect and do
-operations on the objects at the same time. This is what happens to
-collections while using streams.
-
- 
-
-Example:
-
- 
-
-    public class StreamsExample {
-    
-    
-    
-       public static void main(String[] args) {
-    
-          List<Person> people = Arrays.asList(
-    
-                new Person("Charles", "Dickens", 60),
-    
-                new Person("Lewis", "Carroll", 42),
-    
-                new Person("Thomas", "Carlyle", 51),
-    
-                new Person("Charlotte", "Bronte", 45),
-    
-                new Person("Matthew", "Arnold", 39)
-    
-                );
-    
-    
-    
-    
-    
-          //EXAMPLE 1:
-
-          //printing out only the names of people who last name start with the letter C
-    
-          people.stream()
-    
-          .filter(p -> p.getLastName().startsWith("C"))
-    
-          .forEach(p -> System.out.println(p.getFirstName()));
-    
-          
-    
-          
-    
-          //EXAMPLE 2:
-
-          //counting the number of people who last name start with the letter D
-    
-          long count = people.parallelStream()
-    
-          .filter(p -> p.getLastName().startsWith("D"))
-    
-          .count();
-    
-          
-    
-          System.out.println(count);
-    
-    
-    
-       }
-    
-    
-    
-    }
-
- 
-
-    public class Person {
-    
-    
-    
-       private String firstName;
-    
-       private String lastName;
-    
-       private int age;
-    
-       
-    
-       
-    
-       
-    
-       public Person(String firstName, String lastName, int age) {
-    
-          super();
-    
-          this.firstName = firstName;
-    
-          this.lastName = lastName;
-    
-          this.age = age;
-    
-       }
-    
-       
-    
-       public String getFirstName() {
-    
-          return firstName;
-    
-       }
-    
-       public void setFirstName(String firstName) {
-    
-          this.firstName = firstName;
-    
-       }
-    
-       public String getLastName() {
-    
-          return lastName;
-    
-       }
-    
-       public void setLastName(String lastName) {
-    
-          this.lastName = lastName;
-    
-       }
-    
-       public int getAge() {
-    
-          return age;
-    
-       }
-    
-       public void setAge(int age) {
-    
-          this.age = age;
-    
-       }
-    
-    
-    
-       @Override
-    
-       public String toString() {
-    
-          return "Person [firstName=" + firstName + ", lastName=" + lastName + ", age=" + age + "]";
-    
-       }
-    
-    
-    
-    }
-
- 
-
- 
-
-Example 1 explanation:
-
- 
-
-Starting with a collection (List) of elements Person named people, we
-apply the method stream() using the dot notation, now the collection is
-in a stream and multiple operations can be performed.
-
-The first operation is filter(), this operator select only certain
-elements of the list that pass a specific condition, the condition is
-declared as Lambda expression. In our case, the lambda expression will
-take each person from the list (input p) and select based on the last
-name starting with the letter ‘C’ (body of the lambda expression).
-Finally, only for the selected elements the operator forEach() will be
-applied. It takes a new Lambda expression as input. In our case the
-lambda method body will print out the first name of each person.
-
- 
-
- 
-
-Example 2 explanation:
-
-Same as Example 1 but in this case the count() operator will be applied,
-which does not take a lambda expression in input. It just counts the
-elements that are in the filtered collection.
-
- 
-
- 
-
- 
-
-Different operators that can be applied to the stream() method are the
-following:
-
- 
-
-<span style="mso-no-proof:yes">![](FunctionalProgrammingLessonPlan.fld/image014.png)</span>
-
- 
-
- 
-
-These will allow a more performant execution of operations on
-collections, thanks to Streams and Lambda Expression (Functional
-Programming) in Java.
-
-</div>
+## Practice (See Folder Exercise with Solutions) to provide to students
