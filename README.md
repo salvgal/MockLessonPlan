@@ -1,4 +1,4 @@
-# MockLessonPlan
+# Mock Lesson Plan - Java Enterprise Development
 
 This repo contains a 2 - 45 minutes Lesson Plan adapted to students learning the following topics:
 
